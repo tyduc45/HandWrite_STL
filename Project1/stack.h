@@ -10,6 +10,7 @@ template <typename T>
 class Stack
 {
 private:
+	using const
 	T* data;
 	size_t size;
 	size_t capacity;
@@ -98,7 +99,7 @@ public:
 		bool operator == (const StackIterator& other) { return ptr == other.ptr; }
 	};
 
-	// 为什么不放在迭代器类内部实现？
+	
 	StackIterator begin() const
 	{
 		return StackIterator(data); // 值类型，如果是引用，就会出现悬空引用，因为原来的临时变量已经销毁，而引用任然指向原有的临时变量

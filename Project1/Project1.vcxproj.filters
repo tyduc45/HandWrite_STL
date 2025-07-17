@@ -18,12 +18,12 @@
     <ClInclude Include="stack.h">
       <Filter>源文件</Filter>
     </ClInclude>
-    <ClInclude Include="test.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkedList.h">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
