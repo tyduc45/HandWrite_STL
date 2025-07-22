@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="rb_tree.h" />
     <ClInclude Include="stack.h" />
   </ItemGroup>
   <ItemGroup>

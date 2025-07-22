@@ -1,7 +1,16 @@
 #include "LinkedList.h"
+#include "rb_tree.h"
+//#define L_LIST
+//#define RB_TREE
+//#define STACK
+//#define QUEUE
+//#define MAP
+#define QUICKSORT
 
+#ifdef L_LIST
 int main()
 {
+
 	LinkedList<int>* list1 = new LinkedList<int>();
 	delete list1;
 
@@ -62,4 +71,69 @@ int main()
 
 	delete list2;
 	return 0;
+
+#ifdef RB_TREE
+
+	int even_num = 3;
+
+	// asserts the value of even_num must be even
+	assert((even_num % 2 == 0));
+	std::cout << "program will run this code\n";
+
+	return 0;
+
+#endif 
+
+
 }
+#endif
+
+#ifdef QUICKSORT
+#include<iostream>
+#include<vector>
+
+int partition(std::vector<int>& vec, int lo, int hi)
+{
+	int pivot = vec[hi];
+	
+	int i = lo;
+
+	for (int j = lo; j < hi; j++)
+	{
+		if (vec[j] < pivot)
+		{
+			std::swap(vec[i], vec[j]);
+			i++;
+		}
+	}
+	std::swap(vec[i], vec[hi]);
+	return i;
+}
+
+void quicksort(std::vector<int>& vec, int lo, int hi)
+{
+	if (lo >= hi || lo < 0)
+	{
+		return;
+	}
+
+	int p = partition(vec, lo, hi);
+
+	quicksort(vec, lo, p-1);
+	quicksort(vec, p + 1, hi);
+}
+
+
+int main()
+{
+	std::vector<int> test = { 3,2,1 };
+
+	quicksort(test, 0, test.size() - 1);
+
+	for (auto& elem : test)
+	{
+		std::cout << elem << " ";
+	}
+	return 0;
+}
+#endif

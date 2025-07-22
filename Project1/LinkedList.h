@@ -98,7 +98,7 @@ public:
 
 	
 
-	// move constructor
+	// move constructor（移动构造函数）
 	LinkedList(LinkedList&& other)
 	{
 		head = new Node<T>();
@@ -194,7 +194,7 @@ public:
 
 	T deleteAtFront()
 	{
-		if (isEmpty())
+		if (isEmpty())//删除操作前，应该优先判断当前链表是否为空，防止访问未定义内存
 		{
 			std::cout << "the linkedList is now empty\n";
 			return -1;
@@ -209,14 +209,16 @@ public:
 
 	T deleteAtEnd()
 	{
-		Node<T>* prev = head;
-		Node<T>* curr = head;
-		if (isEmpty())
+		if (isEmpty()) 
 		{
 			std::cout << "the linkedList is now empty\n";
 			return -1;
 		}
 
+
+		Node<T>* prev = head;
+		Node<T>* curr = head;
+		
 		// go to the end
 		while (curr->next != nullptr)
 		{
